@@ -1,0 +1,71 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# מסך הכניסה מגיע מ-Netlify Identity - רק המשתמשים שתזמין יוכלו להתחבר
+local_backend: false
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "he"
+
+collections:
+  - name: "content"
+    label: "תוכן האתר"
+    files:
+      - name: "site"
+        label: "כל תוכן האתר"
+        file: "content.json"
+        fields:
+          - label: "מסך פתיחה (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "כותרת ראשית", name: "title", widget: "text" }
+              - { label: "כותרת משנה", name: "subtitle", widget: "text" }
+
+          - label: "פרטי יצירת קשר"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "מספר וואטסאפ (בפורמט 972501234567 בלי + ובלי אפס מוביל)", name: "whatsapp_phone", widget: "string" }
+              - { label: "הודעת וואטסאפ מוכנה מראש", name: "whatsapp_message", widget: "string" }
+              - { label: "כתובת מייל", name: "email", widget: "string" }
+              - { label: "עיר / איזור", name: "city", widget: "string" }
+              - { label: "שעות מענה", name: "hours", widget: "string" }
+
+          - label: "לוח זמנים (ימי שיעור)"
+            name: "schedule"
+            widget: "list"
+            label_singular: "יום שיעור"
+            fields:
+              - { label: "יום", name: "day", widget: "string" }
+              - { label: "שעה", name: "time", widget: "string" }
+              - { label: "תיאור קצר", name: "description", widget: "text" }
+
+          - label: "מחיר"
+            name: "price"
+            widget: "object"
+            fields:
+              - { label: "סכום (למשל: 270 ₪)", name: "amount", widget: "string" }
+              - { label: "יחידה (למשל: / לחודש)", name: "unit", widget: "string" }
+              - { label: "הערה מתחת למחיר", name: "note", widget: "text" }
+
+          - label: "המלצות תלמידות"
+            name: "testimonials"
+            widget: "list"
+            label_singular: "המלצה"
+            fields:
+              - { label: "שם", name: "name", widget: "string" }
+              - { label: "אות ראשונה (לאווטאר)", name: "initial", widget: "string" }
+              - { label: "תיאור קצר (למשל: מתרגלת 5 שנים)", name: "meta", widget: "string" }
+              - { label: "תוכן ההמלצה", name: "text", widget: "text" }
+
+          - label: "שאלות נפוצות"
+            name: "faq"
+            widget: "list"
+            label_singular: "שאלה"
+            fields:
+              - { label: "שאלה", name: "q", widget: "string" }
+              - { label: "תשובה", name: "a", widget: "text" }
