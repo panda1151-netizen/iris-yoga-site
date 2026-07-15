@@ -11,12 +11,14 @@ local_backend: false
 media_folder: "images"
 public_folder: "/images"
 
+locale: "he"
+
 collections:
   - name: "content"
-    label: "Site Content"
+    label: "תוכן האתר"
     files:
       - name: "site"
-        label: "Content"
+        label: "כל תוכן האתר"
         file: "content.json"
         fields:
           - label: "מסך פתיחה (Hero)"
