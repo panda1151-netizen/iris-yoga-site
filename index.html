@@ -12,6 +12,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:ital,wght@1,500&display=swap" rel="stylesheet">
+<!-- נדרש כדי שקישור ההזמנה של Netlify Identity יעבוד נכון גם כשהוא מצביע לעמוד הבית -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {});
+  }
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -391,7 +398,7 @@ section{padding:100px 0}
       <li><a href="#faq">שאלות נפוצות</a></li>
     </ul>
     <a class="btn btn-primary nav-cta" style="min-height:44px;padding:10px 22px;font-size:15.5px"
-       href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
+       href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
        target="_blank" rel="noopener">לתיאום שיעור</a>
     <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks" aria-label="פתיחת תפריט">
       <span></span><span></span><span></span>
@@ -404,8 +411,8 @@ section{padding:100px 0}
   <div class="container hero-grid">
     <div class="hero-text reveal">
       <span class="eyebrow">סטודיו ביתי לנשים · קרית טבעון</span>
-      <h1>לנשום עמוק. להרפות את הגוף. למצוא את השקט שבתוכך.</h1>
-      <p class="sub">סטודיו אינטימי לנשים לתרגול שיבננדה יוגה רכה בשילוב צלילים מרפאים. עד 5 משתתפות בקבוצה – כי כאן את במרכז.</p>
+      <h1 id="heroTitle">לנשום עמוק. להרפות את הגוף. למצוא את השקט שבתוכך.</h1>
+      <p class="sub" id="heroSubtitle">סטודיו אינטימי לנשים לתרגול שיבננדה יוגה רכה בשילוב צלילים מרפאים. עד 5 משתתפות בקבוצה – כי כאן את במרכז.</p>
       <div class="hero-badges">
         <span class="badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="#4A5D4E" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 00-3-3.87"/></svg>
@@ -421,7 +428,7 @@ section{padding:100px 0}
         </span>
       </div>
       <a class="btn btn-primary"
-         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
+         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
          target="_blank" rel="noopener">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2a9.9 9.9 0 00-8.4 15.13L2 22l5-1.62A9.9 9.9 0 1012.05 2zm0 18.13a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .97 1-2.9-.2-.3a8.23 8.23 0 116.7 3.56z"/></svg>
         לתיאום שיעור
@@ -611,7 +618,7 @@ section{padding:100px 0}
       <h2>מפנים זמן לעצמך</h2>
       <p>קבוצות קטנות ואינטימיות – עד 5 משתתפות בלבד</p>
     </div>
-    <div class="sched-grid">
+    <div class="sched-grid" id="scheduleGrid">
       <div class="sched-card reveal">
         <div class="sched-day">יום רביעי</div>
         <div class="sched-time">18:00</div>
@@ -625,10 +632,10 @@ section{padding:100px 0}
     </div>
     <div class="price-card reveal">
       <div class="price-tag">מנוי חודשי · שיעור קבוע בשבוע</div>
-      <div class="price-amount">270 ₪ <span>/ לחודש</span></div>
-      <p>הדרך המומלצת – מבטיחה עקביות ותוצאות אמיתיות. מזרנים ושמיכות רכות מחכים לך בסטודיו.</p>
+      <div class="price-amount" id="priceAmount">270 ₪ <span>/ לחודש</span></div>
+      <p id="priceNote">הדרך המומלצת – מבטיחה עקביות ותוצאות אמיתיות. מזרנים ושמיכות רכות מחכים לך בסטודיו.</p>
       <a class="btn btn-primary"
-         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
+         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
          target="_blank" rel="noopener">לתיאום שיעור</a>
       <p class="price-note">רוצה קודם להתנסות? שלחי הודעה ונתאם יחד שיעור היכרות.</p>
     </div>
@@ -642,7 +649,7 @@ section{padding:100px 0}
       <span class="eyebrow">הוכחה חיה</span>
       <h2>מה תלמידות שלי מספרות</h2>
     </div>
-    <div class="testi-grid">
+    <div class="testi-grid" id="testimonialsGrid">
       <article class="testi reveal">
         <p>יש מורים שפוגשים בדרך ויש כאלה שמלווים את הדרך. כבר 12 שנה אני מתרגלת יוגה עם איריס ובכל פעם מחדש אני יוצאת מהשיעור עם תחושה שעשיתי משהו טוב גם לגוף וגם לנפש. איריס מצליחה לשלב תרגול פיזי מדויק עם שקט פנימי אמיתי, ובסוף כל שיעור, בזמן ההרפיה, יש נגינה בכלים מופלאים כמו נבל – הניגון הופך את ההרפיה למשהו מיוחד ומרפא.</p>
         <footer>
@@ -682,7 +689,7 @@ section{padding:100px 0}
       <span class="eyebrow">כל מה שכדאי לדעת</span>
       <h2>שאלות ותשובות</h2>
     </div>
-    <div class="faq-wrap reveal">
+    <div class="faq-wrap reveal" id="faqWrap">
       <div class="faq">
         <button class="faq-q" aria-expanded="false">אף פעם לא עשיתי יוגה – זה מתאים לי?<span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><p>לגמרי כן! השיעורים שלי מיועדים לכל רמה, גם למי שאף פעם לא תרגלה. אין "רמת קושי" ואין "צריך להיות גמישה". כל תנוחה מותאמת אישית לגוף שלך.</p></div>
@@ -720,22 +727,22 @@ section{padding:100px 0}
       <p>שלחי הודעה קצרה בוואטסאפ – ונמצא יחד את השיעור שמתאים לך.</p>
       <div class="contact-actions">
         <a class="btn btn-primary"
-           href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
+           href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
            target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2a9.9 9.9 0 00-8.4 15.13L2 22l5-1.62A9.9 9.9 0 1012.05 2zm0 18.13a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .97 1-2.9-.2-.3a8.23 8.23 0 116.7 3.56z"/></svg>
           לתיאום שיעור
         </a>
-        <a class="btn btn-ghost" href="mailto:irisfriedman197@gmail.com">שליחת מייל</a>
+        <a class="btn btn-ghost" href="mailto:irisfriedman197@gmail.com" data-email-link="true">שליחת מייל</a>
       </div>
       <span class="reassure">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         אענה תוך יום עסקים · בלי לחץ ובלי התחייבות
       </span>
       <div class="contact-details">
-        <span>הסטודיו: קרית טבעון (הכתובת המדויקת נמסרת בתיאום)</span>
-        <span>וואטסאפ: <a href="https://wa.me/972528636380" target="_blank" rel="noopener" dir="ltr">052-863-6380</a></span>
-        <span>מייל: <a href="mailto:irisfriedman197@gmail.com" dir="ltr">irisfriedman197@gmail.com</a></span>
-        <span>שעות מענה: ימים א׳–ה׳, 9:00–19:00</span>
+        <span>הסטודיו: <span id="contactCity">קרית טבעון (הכתובת המדויקת נמסרת בתיאום)</span></span>
+        <span>וואטסאפ: <a href="https://wa.me/972528636380" target="_blank" rel="noopener" dir="ltr" data-wa-link="true" data-wa-display="true" id="contactWhatsappLink">052-863-6380</a></span>
+        <span>מייל: <a href="mailto:irisfriedman197@gmail.com" dir="ltr" id="contactEmailLink">irisfriedman197@gmail.com</a></span>
+        <span>שעות מענה: <span id="contactHours">ימים א׳–ה׳, 9:00–19:00</span></span>
       </div>
     </div>
   </div>
@@ -758,7 +765,7 @@ section{padding:100px 0}
 
 <!-- ============ FLOATING WHATSAPP ============ -->
 <a class="wa-float"
-   href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
+   href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
    target="_blank" rel="noopener" aria-label="שליחת הודעת וואטסאפ לתיאום שיעור">
   <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2a9.9 9.9 0 00-8.4 15.13L2 22l5-1.62A9.9 9.9 0 1012.05 2zm0 18.13a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .97 1-2.9-.2-.3a8.23 8.23 0 116.7 3.56z"/></svg>
 </a>
@@ -812,6 +819,117 @@ document.querySelectorAll('.faq').forEach(faq => {
     }
   });
 });
+</script>
+<script>
+// ============ טעינת תוכן מ-content.json ============
+// אם הקובץ לא נטען (למשל פתיחה ישירה של הקובץ בלי שרת) - האתר ממשיך לעבוד
+// עם הטקסטים הקבועים שכבר כתובים ב-HTML, בלי שגיאה למשתמשת.
+fetch('content.json')
+  .then(res => res.ok ? res.json() : Promise.reject())
+  .then(renderContent)
+  .catch(() => { /* משתמשים בתוכן הסטטי הקיים */ });
+
+function esc(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function renderContent(c) {
+  // Hero
+  if (c.hero) {
+    const t = document.getElementById('heroTitle');
+    const s = document.getElementById('heroSubtitle');
+    if (t && c.hero.title) t.textContent = c.hero.title;
+    if (s && c.hero.subtitle) s.textContent = c.hero.subtitle;
+  }
+
+  // WhatsApp + Email links
+  if (c.contact) {
+    const phone = (c.contact.whatsapp_phone || '').replace(/\D/g, '');
+    const msg = encodeURIComponent(c.contact.whatsapp_message || '');
+    if (phone) {
+      document.querySelectorAll('[data-wa-link="true"]').forEach(a => {
+        a.href = a.hasAttribute('data-wa-display')
+          ? `https://wa.me/${phone}`
+          : `https://wa.me/${phone}?text=${msg}`;
+      });
+    }
+    if (c.contact.email) {
+      document.querySelectorAll('[data-email-link="true"], #contactEmailLink').forEach(a => {
+        a.href = `mailto:${c.contact.email}`;
+        if (a.id === 'contactEmailLink') a.textContent = c.contact.email;
+      });
+    }
+    const city = document.getElementById('contactCity');
+    const hours = document.getElementById('contactHours');
+    if (city && c.contact.city) city.textContent = c.contact.city;
+    if (hours && c.contact.hours) hours.textContent = c.contact.hours;
+  }
+
+  // Schedule
+  const schedGrid = document.getElementById('scheduleGrid');
+  if (schedGrid && Array.isArray(c.schedule) && c.schedule.length) {
+    schedGrid.innerHTML = c.schedule.map(s => `
+      <div class="sched-card reveal visible">
+        <div class="sched-day">${esc(s.day || '')}</div>
+        <div class="sched-time">${esc(s.time || '')}</div>
+        <p>${esc(s.description || '')}</p>
+      </div>`).join('');
+  }
+
+  // Price
+  if (c.price) {
+    const amt = document.getElementById('priceAmount');
+    const note = document.getElementById('priceNote');
+    if (amt && c.price.amount) amt.innerHTML = `${esc(c.price.amount)} <span>${esc(c.price.unit || '')}</span>`;
+    if (note && c.price.note) note.textContent = c.price.note;
+  }
+
+  // Testimonials
+  const testiGrid = document.getElementById('testimonialsGrid');
+  if (testiGrid && Array.isArray(c.testimonials) && c.testimonials.length) {
+    testiGrid.innerHTML = c.testimonials.map(t => `
+      <article class="testi reveal visible">
+        <p>${esc(t.text || '')}</p>
+        <footer>
+          <span class="testi-avatar" aria-hidden="true">${esc(t.initial || '')}</span>
+          <div><div class="testi-name">${esc(t.name || '')}</div><div class="testi-meta">${esc(t.meta || '')}</div></div>
+        </footer>
+      </article>`).join('');
+  }
+
+  // FAQ
+  const faqWrap = document.getElementById('faqWrap');
+  if (faqWrap && Array.isArray(c.faq) && c.faq.length) {
+    faqWrap.innerHTML = c.faq.map(item => `
+      <div class="faq">
+        <button class="faq-q" aria-expanded="false">${esc(item.q || '')}<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>${esc(item.a || '')}</p></div>
+      </div>`).join('');
+    bindFaqEvents();
+  }
+}
+
+function bindFaqEvents() {
+  document.querySelectorAll('.faq').forEach(faq => {
+    const btn = faq.querySelector('.faq-q');
+    const ans = faq.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = faq.classList.contains('open');
+      document.querySelectorAll('.faq.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        faq.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+}
 </script>
 </body>
 </html>
