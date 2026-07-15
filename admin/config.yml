@@ -11,8 +11,6 @@ local_backend: false
 media_folder: "images"
 public_folder: "/images"
 
-locale: "he"
-
 collections:
   - name: "content"
     label: "תוכן האתר"
