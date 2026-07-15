@@ -13,10 +13,10 @@ public_folder: "/images"
 
 collections:
   - name: "content"
-    label: "תוכן האתר"
+    label: "תוכן"
     files:
       - name: "site"
-        label: "כל תוכן האתר"
+        label: "האתר"
         file: "content.json"
         fields:
           - label: "מסך פתיחה (Hero)"
