@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+# מאפשר לשמור שינויים כטיוטה ולפרסם רק כשתחליט, במקום פרסום מיידי אוטומטי
+publish_mode: editorial_workflow
+
 # מסך הכניסה מגיע מ-Netlify Identity - רק המשתמשים שתזמין יוכלו להתחבר
 local_backend: false
 
