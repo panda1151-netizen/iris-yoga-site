@@ -47,6 +47,7 @@
   --radius-card:20px;
   --shadow-soft:0 6px 24px rgba(74,93,78,.10);
   --shadow-hover:0 12px 32px rgba(74,93,78,.16);
+  --ease-out:cubic-bezier(.23,1,.32,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -76,12 +77,27 @@ section{padding:100px 0}
 .section-head p{color:var(--subtext);margin-top:14px;font-size:18px}
 
 /* ---------- Reveal on scroll ---------- */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
 .reveal.visible{opacity:1;transform:none}
+.pain-list .reveal:nth-child(1){transition-delay:0ms}
+.pain-list .reveal:nth-child(2){transition-delay:60ms}
+.pain-list .reveal:nth-child(3){transition-delay:120ms}
+.pain-list .reveal:nth-child(4){transition-delay:180ms}
+.instruments .reveal:nth-child(1){transition-delay:0ms}
+.instruments .reveal:nth-child(2){transition-delay:60ms}
+.instruments .reveal:nth-child(3){transition-delay:120ms}
+.instruments .reveal:nth-child(4){transition-delay:180ms}
+.instruments .reveal:nth-child(5){transition-delay:240ms}
+.sched-grid .reveal:nth-child(1){transition-delay:0ms}
+.sched-grid .reveal:nth-child(2){transition-delay:60ms}
+.testi-grid .reveal:nth-child(1){transition-delay:0ms}
+.testi-grid .reveal:nth-child(2){transition-delay:60ms}
+.testi-grid .reveal:nth-child(3){transition-delay:120ms}
+.testi-grid .reveal:nth-child(4){transition-delay:180ms}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;transition-delay:0s!important}
 }
 
 /* ---------- Buttons ---------- */
@@ -89,14 +105,16 @@ section{padding:100px 0}
   display:inline-flex;align-items:center;gap:10px;justify-content:center;
   min-height:52px;padding:14px 34px;border-radius:var(--radius-btn);
   font-family:'Assistant',sans-serif;font-size:17px;font-weight:600;cursor:pointer;border:none;
-  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+  transition:transform .16s var(--ease-out),box-shadow .2s ease,background-color .2s ease;
 }
 .btn:focus-visible{outline:3px solid var(--stone);outline-offset:3px}
 .btn-primary{background:var(--sage);color:#fff;box-shadow:var(--shadow-soft)}
-.btn-primary:hover{background:var(--sage-dark);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
-.btn-primary:active{transform:translateY(0)}
 .btn-ghost{background:transparent;color:var(--sage);border:1.5px solid var(--sage)}
-.btn-ghost:hover{background:var(--sage);color:#fff;transform:translateY(-2px)}
+@media(hover:hover) and (pointer:fine){
+  .btn-primary:hover{background:var(--sage-dark);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+  .btn-ghost:hover{background:var(--sage);color:#fff;transform:translateY(-2px)}
+}
+.btn-primary:active,.btn-ghost:active{transform:scale(.97)}
 .btn svg{flex-shrink:0}
 
 /* ---------- Nav ---------- */
@@ -189,9 +207,11 @@ section{padding:100px 0}
 .pain-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto}
 .pain-item{
   display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:var(--radius-card);
-  padding:24px 26px;box-shadow:var(--shadow-soft);transition:transform .25s ease,box-shadow .25s ease;
+  padding:24px 26px;box-shadow:var(--shadow-soft);transition:transform .25s var(--ease-out),box-shadow .25s ease;
 }
-.pain-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+@media(hover:hover) and (pointer:fine){
+  .pain-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+}
 .pain-item svg{width:26px;height:26px;flex-shrink:0;margin-top:3px}
 .pain-item p{font-size:16.5px}
 .closing-line{
@@ -255,9 +275,11 @@ section{padding:100px 0}
 .instruments{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1050px;margin:0 auto}
 .instrument{
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);
-  padding:18px 16px 22px;text-align:center;transition:background .25s ease,transform .25s ease;overflow:hidden;
+  padding:18px 16px 22px;text-align:center;transition:background .25s ease,transform .25s var(--ease-out);overflow:hidden;
 }
-.instrument:hover{background:rgba(255,255,255,.13);transform:translateY(-4px)}
+@media(hover:hover) and (pointer:fine){
+  .instrument:hover{background:rgba(255,255,255,.13);transform:translateY(-4px)}
+}
 .instrument-photo{
   width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 16px rgba(0,0,0,.2);
 }
@@ -301,9 +323,11 @@ section{padding:100px 0}
 .sched-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:0 auto 44px}
 .sched-card{
   background:#fff;border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-soft);
-  border-top:3px solid var(--stone-light);transition:transform .25s ease,box-shadow .25s ease;
+  border-top:3px solid var(--stone-light);transition:transform .25s var(--ease-out),box-shadow .25s ease;
 }
-.sched-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+@media(hover:hover) and (pointer:fine){
+  .sched-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+}
 .sched-day{font-weight:700;color:var(--sage);font-size:20px;margin-bottom:4px}
 .sched-time{font-size:26px;font-weight:700;color:var(--text);margin-bottom:10px}
 .sched-card p{color:var(--subtext);font-size:15.5px}
@@ -363,8 +387,10 @@ section{padding:100px 0}
 .faq.open .faq-icon{transform:rotate(180deg);background:var(--sage)}
 .faq.open .faq-icon::before{background:#fff}
 .faq.open .faq-icon::after{transform:translate(-50%,-50%) scaleY(0);background:#fff}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-a p{padding:0 24px 22px;color:var(--subtext);font-size:16px}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease-out)}
+.faq.open .faq-a{grid-template-rows:1fr}
+.faq-a-inner{overflow:hidden;min-height:0;min-width:0}
+.faq-a-inner p{padding:0 24px 22px;color:var(--subtext);font-size:16px}
 
 /* ---------- Contact ---------- */
 .contact{background:var(--bg2)}
@@ -393,9 +419,12 @@ section{padding:100px 0}
 .wa-float{
   position:fixed;bottom:22px;right:22px;z-index:99;width:60px;height:60px;border-radius:50%;
   background:var(--wa);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 22px rgba(37,211,102,.45);transition:transform .25s ease,box-shadow .25s ease;
+  box-shadow:0 6px 22px rgba(37,211,102,.45);transition:transform .2s var(--ease-out),box-shadow .25s ease;
 }
-.wa-float:hover{transform:scale(1.09);box-shadow:0 10px 30px rgba(37,211,102,.55)}
+@media(hover:hover) and (pointer:fine){
+  .wa-float:hover{transform:scale(1.09);box-shadow:0 10px 30px rgba(37,211,102,.55)}
+}
+.wa-float:active{transform:scale(.93)}
 .wa-float:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
 .wa-float svg{width:31px;height:31px}
 .wa-float::after{
@@ -710,27 +739,27 @@ section{padding:100px 0}
     <div class="faq-wrap reveal" id="faqWrap">
       <div class="faq">
         <button class="faq-q" aria-expanded="false">אף פעם לא עשיתי יוגה – זה מתאים לי?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>לגמרי כן! השיעורים שלי מיועדים לכל רמה, גם למי שאף פעם לא תרגלה. אין "רמת קושי" ואין "צריך להיות גמישה". כל תנוחה מותאמת אישית לגוף שלך.</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>לגמרי כן! השיעורים שלי מיועדים לכל רמה, גם למי שאף פעם לא תרגלה. אין "רמת קושי" ואין "צריך להיות גמישה". כל תנוחה מותאמת אישית לגוף שלך.</p></div></div>
       </div>
       <div class="faq">
         <button class="faq-q" aria-expanded="false">אני לא גמישה בכלל. זה יעבוד לי?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>זו הסיבה הכי טובה להתחיל. יוגה לא דורשת גמישות – היא בונה אותה. וגם אם לא תגיעי לגמישות של מתרגלות ותיקות, התועלות (נשימה, שקט, איזון) יגיעו כבר מהשיעור הראשון.</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>זו הסיבה הכי טובה להתחיל. יוגה לא דורשת גמישות – היא בונה אותה. וגם אם לא תגיעי לגמישות של מתרגלות ותיקות, התועלות (נשימה, שקט, איזון) יגיעו כבר מהשיעור הראשון.</p></div></div>
       </div>
       <div class="faq">
         <button class="faq-q" aria-expanded="false">מה להביא לשיעור?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>רק בגדים נוחים ואת עצמך. בסטודיו יש מספיק מזרנים לכולן, ואני מספקת גם שמיכה רכה להרפיה. מומלץ להגיע 5–10 דקות מוקדם כדי "לנחות" במרחב בנחת.</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>רק בגדים נוחים ואת עצמך. בסטודיו יש מספיק מזרנים לכולן, ואני מספקת גם שמיכה רכה להרפיה. מומלץ להגיע 5–10 דקות מוקדם כדי "לנחות" במרחב בנחת.</p></div></div>
       </div>
       <div class="faq">
         <button class="faq-q" aria-expanded="false">אפשר לבוא קודם לשיעור היכרות?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>בהחלט. שלחי לי הודעה בוואטסאפ ונתאם יחד שיעור היכרות – הזדמנות להכיר את הסטודיו, את החוויה ואותי, בנעימות וללא התחייבות.</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>בהחלט. שלחי לי הודעה בוואטסאפ ונתאם יחד שיעור היכרות – הזדמנות להכיר את הסטודיו, את החוויה ואותי, בנעימות וללא התחייבות.</p></div></div>
       </div>
       <div class="faq">
         <button class="faq-q" aria-expanded="false">מה בדיוק זה "צלילים מרפאים"?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>בשלב ההרפיה של השיעור אני מנגנת על כלים אקוסטיים מיוחדים – פאנטם, נבל, פעמוני קושי ועוד. הצלילים יוצרים תדרים שמרגיעים את מערכת העצבים ומעצימים את חוויית ההרפיה. זו לא הופעה – זה חלק מהתרגול.</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>בשלב ההרפיה של השיעור אני מנגנת על כלים אקוסטיים מיוחדים – פאנטם, נבל, פעמוני קושי ועוד. הצלילים יוצרים תדרים שמרגיעים את מערכת העצבים ומעצימים את חוויית ההרפיה. זו לא הופעה – זה חלק מהתרגול.</p></div></div>
       </div>
       <div class="faq">
         <button class="faq-q" aria-expanded="false">אני בהריון. אפשר להצטרף?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>משיקולי בטיחות בלבד, השיעורים כרגע אינם מותאמים לתקופת ההיריון – ואת כמובן רצויה מאוד. אחרי הלידה ובאישור רופא, אשמח לקבל אותך בזרועות פתוחות. מוזמנת להשאיר פרטים כבר עכשיו ואעדכן אותך כשתוכלי להצטרף.</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>משיקולי בטיחות בלבד, השיעורים כרגע אינם מותאמים לתקופת ההיריון – ואת כמובן רצויה מאוד. אחרי הלידה ובאישור רופא, אשמח לקבל אותך בזרועות פתוחות. מוזמנת להשאיר פרטים כבר עכשיו ואעדכן אותך כשתוכלי להצטרף.</p></div></div>
       </div>
     </div>
   </div>
@@ -823,18 +852,15 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 function bindFaqEvents() {
   document.querySelectorAll('.faq').forEach(faq => {
     const btn = faq.querySelector('.faq-q');
-    const ans = faq.querySelector('.faq-a');
     btn.addEventListener('click', () => {
       const isOpen = faq.classList.contains('open');
       document.querySelectorAll('.faq.open').forEach(o => {
         o.classList.remove('open');
         o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        o.querySelector('.faq-a').style.maxHeight = null;
       });
       if (!isOpen) {
         faq.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
       }
     });
   });
@@ -917,7 +943,7 @@ function renderContent(c) {
     faqWrap.innerHTML = c.faq.map(item => `
       <div class="faq">
         <button class="faq-q" aria-expanded="false">${esc(item.q || '')}<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>${esc(item.a || '')}</p></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>${esc(item.a || '')}</p></div></div>
       </div>`).join('');
     bindFaqEvents();
   }
