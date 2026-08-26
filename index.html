@@ -166,10 +166,15 @@ section{padding:100px 0}
   animation:breathe 9s ease-in-out infinite;animation-delay:.4s;
 }
 @keyframes breathe{0%,100%{transform:scale(.94)}50%{transform:scale(1.04)}}
-.hero-illustration{position:relative;width:74%;margin:auto;z-index:1}
+.hero-photo-frame{
+  position:relative;width:78%;margin:auto;z-index:1;border-radius:50%;overflow:hidden;
+  aspect-ratio:1;box-shadow:0 18px 44px rgba(74,93,78,.22);border:5px solid #fff;
+}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .hero-hint{
   position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
   font-size:13.5px;color:var(--stone);letter-spacing:.08em;white-space:nowrap;
+  background:var(--bg);padding:2px 10px;border-radius:999px;
 }
 @media(max-width:860px){
   .hero{padding-top:110px}
@@ -195,15 +200,27 @@ section{padding:100px 0}
 }
 @media(max-width:700px){.pain-list{grid-template-columns:1fr}}
 
+/* ---------- Studio ambience strip ---------- */
+.ambience-strip{
+  margin-top:64px;border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-soft);
+  max-width:900px;margin-inline:auto;position:relative;
+}
+.ambience-strip img{width:100%;height:280px;object-fit:cover;display:block}
+.ambience-caption{
+  position:absolute;bottom:0;right:0;left:0;padding:18px 24px;
+  background:linear-gradient(to top, rgba(42,42,42,.55), transparent);
+  color:#fff;font-size:15px;font-weight:600;
+}
+@media(max-width:700px){.ambience-strip img{height:200px}}
+
 /* ---------- About ---------- */
 .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
 .about-visual{position:relative;display:flex;justify-content:center}
 .about-frame{
   width:min(360px,85vw);aspect-ratio:.86;border-radius:180px 180px 24px 24px;
-  background:linear-gradient(170deg,#fff 0%,var(--bg2) 100%);
-  border:1px solid rgba(160,139,112,.25);display:flex;align-items:flex-end;justify-content:center;
-  padding:8%;box-shadow:var(--shadow-soft);
+  overflow:hidden;border:1px solid rgba(160,139,112,.25);box-shadow:var(--shadow-soft);
 }
+.about-frame img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .about-text h2{margin-bottom:6px}
 .about-text .role{color:var(--stone);font-weight:600;font-size:17px;margin-bottom:22px}
 .about-text p{margin-bottom:16px;color:var(--text)}
@@ -229,14 +246,22 @@ section{padding:100px 0}
 .ripples circle:nth-child(4){animation-delay:5.1s}
 @keyframes ripple{0%{transform:scale(.18);opacity:0}12%{opacity:1}100%{transform:scale(1);opacity:0}}
 .sound-content{position:relative;z-index:1}
+.sound-lead-photo{
+  max-width:800px;margin:0 auto 48px;border-radius:var(--radius-card);overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.28);
+}
+.sound-lead-photo img{width:100%;max-height:420px;object-fit:cover;display:block}
 .sound-lead{max-width:760px;margin:0 auto 56px;text-align:center;font-size:18px;color:rgba(255,255,255,.9)}
 .instruments{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1050px;margin:0 auto}
 .instrument{
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);
-  padding:26px 18px;text-align:center;transition:background .25s ease,transform .25s ease;
+  padding:18px 16px 22px;text-align:center;transition:background .25s ease,transform .25s ease;overflow:hidden;
 }
 .instrument:hover{background:rgba(255,255,255,.13);transform:translateY(-4px)}
-.instrument svg{width:44px;height:44px;margin:0 auto 14px}
+.instrument-photo{
+  width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+.instrument-photo img{width:100%;height:100%;object-fit:cover}
 .instrument h3{color:#fff;font-size:17.5px;margin-bottom:6px}
 .instrument p{font-size:14.5px;color:rgba(255,255,255,.75);line-height:1.55}
 .sound-note{
@@ -266,6 +291,10 @@ section{padding:100px 0}
 .benefit-list{list-style:none}
 .benefit-list li{display:flex;gap:12px;align-items:flex-start;padding-bottom:16px;font-size:16.5px}
 .benefit-list svg{width:20px;height:20px;flex-shrink:0;margin-top:4px}
+.class-photo{
+  margin-top:24px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-soft);
+}
+.class-photo img{width:100%;max-height:220px;object-fit:cover;display:block}
 @media(max-width:820px){.class-grid{grid-template-columns:1fr}}
 
 /* ---------- Schedule & pricing ---------- */
@@ -398,8 +427,8 @@ section{padding:100px 0}
       <li><a href="#faq">שאלות נפוצות</a></li>
     </ul>
     <a class="btn btn-primary nav-cta" style="min-height:44px;padding:10px 22px;font-size:15.5px"
-       href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
-       target="_blank" rel="noopener">לתיאום שיעור</a>
+       href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
+       target="_blank" rel="noopener" data-wa-link="true">לתיאום שיעור</a>
     <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks" aria-label="פתיחת תפריט">
       <span></span><span></span><span></span>
     </button>
@@ -427,32 +456,20 @@ section{padding:100px 0}
           מתאים גם למתחילות
         </span>
       </div>
-      <a class="btn btn-primary"
-         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
+      <a class="btn btn-primary" data-wa-link="true"
+         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
          target="_blank" rel="noopener">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2a9.9 9.9 0 00-8.4 15.13L2 22l5-1.62A9.9 9.9 0 1012.05 2zm0 18.13a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .97 1-2.9-.2-.3a8.23 8.23 0 116.7 3.56z"/></svg>
         לתיאום שיעור
       </a>
     </div>
     <div class="hero-visual reveal">
-      <div class="breath-wrap" aria-hidden="true">
-        <div class="breath-circle"></div>
-        <div class="breath-ring"></div>
-        <svg class="hero-illustration" viewBox="0 0 300 300" fill="none" role="img" aria-label="איור קווי של אישה יושבת במדיטציה">
-          <!-- meditating woman line art -->
-          <ellipse cx="150" cy="252" rx="92" ry="10" fill="rgba(160,139,112,.18)"/>
-          <circle cx="150" cy="92" r="26" stroke="#4A5D4E" stroke-width="2.4"/>
-          <path d="M128 84c4-14 40-14 44 0" stroke="#A08B70" stroke-width="2" stroke-linecap="round"/>
-          <path d="M150 118v18" stroke="#4A5D4E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M150 136c-30 0-52 22-58 52-3 16 4 26 16 30" stroke="#4A5D4E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M150 136c30 0 52 22 58 52 3 16-4 26-16 30" stroke="#4A5D4E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M104 196c-14 14-10 30 8 34l30-4" stroke="#4A5D4E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M196 196c14 14 10 30-8 34l-30-4" stroke="#4A5D4E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M92 246c18-14 40-20 58-20s40 6 58 20" stroke="#4A5D4E" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="97" cy="233" r="6.5" stroke="#A08B70" stroke-width="2"/>
-          <circle cx="203" cy="233" r="6.5" stroke="#A08B70" stroke-width="2"/>
-          <path d="M150 40c-2 6-2 10 0 14 2-4 2-8 0-14z" stroke="#A08B70" stroke-width="1.8" stroke-linejoin="round"/>
-        </svg>
+      <div class="breath-wrap">
+        <div class="breath-circle" aria-hidden="true"></div>
+        <div class="breath-ring" aria-hidden="true"></div>
+        <div class="hero-photo-frame">
+          <img src="images/hero-practice.jpg" alt="איריס מתרגלת יוגה בסטודיו, מוקפת בכלי הנגינה המרפאים">
+        </div>
         <span class="hero-hint">שאיפה · נשיפה</span>
       </div>
     </div>
@@ -486,6 +503,11 @@ section{padding:100px 0}
       </div>
     </div>
     <p class="closing-line reveal">אם אחד או יותר מהמשפטים האלה מוכר לך – זה בדיוק המקום בשבילך.</p>
+
+    <div class="ambience-strip reveal">
+      <img src="images/studio-ambience.jpg" alt="הסטודיו הביתי של איריס - מזרנים וכריות ישיבה מוכנים לתרגול">
+      <span class="ambience-caption">הסטודיו הביתי בקרית טבעון, מוכן ומזמין לתרגול</span>
+    </div>
   </div>
 </section>
 
@@ -494,19 +516,7 @@ section{padding:100px 0}
   <div class="container about-grid">
     <div class="about-visual reveal">
       <div class="about-frame">
-        <svg viewBox="0 0 260 280" fill="none" role="img" aria-label="איור קווי של מורה ליוגה בתנוחת עץ">
-          <!-- tree pose line art -->
-          <circle cx="130" cy="52" r="22" stroke="#4A5D4E" stroke-width="2.3"/>
-          <path d="M112 46c4-12 32-12 36 0" stroke="#A08B70" stroke-width="1.9" stroke-linecap="round"/>
-          <path d="M130 74v92" stroke="#4A5D4E" stroke-width="2.3" stroke-linecap="round"/>
-          <path d="M130 96c-16 10-26 2-34-10M130 96c16 10 26 2 34-10" stroke="#4A5D4E" stroke-width="2.3" stroke-linecap="round"/>
-          <path d="M96 86c-4-8-2-14 4-18M164 86c4-8 2-14-4-18" stroke="#4A5D4E" stroke-width="2.3" stroke-linecap="round"/>
-          <path d="M130 166v88" stroke="#4A5D4E" stroke-width="2.3" stroke-linecap="round"/>
-          <path d="M130 170c14 6 18 18 14 34l-14 8" stroke="#4A5D4E" stroke-width="2.3" stroke-linecap="round"/>
-          <path d="M96 258h68" stroke="#A08B70" stroke-width="2" stroke-linecap="round"/>
-          <path d="M100 68c-3 5-3 9 0 13 3-4 3-8 0-13z" stroke="#A08B70" stroke-width="1.6" stroke-linejoin="round"/>
-          <path d="M160 68c-3 5-3 9 0 13 3-4 3-8 0-13z" stroke="#A08B70" stroke-width="1.6" stroke-linejoin="round"/>
-        </svg>
+        <img src="images/about-iris.jpg" alt="איריס פרידמן יושבת במדיטציה, ידיים בתנוחת תפילה">
       </div>
     </div>
     <div class="about-text reveal">
@@ -537,32 +547,37 @@ section{padding:100px 0}
       <h2>חוויית הרפיה מלווה בצלילים מרפאים</h2>
       <p>לא רק יוגה – חוויה הוליסטית משנת תודעה</p>
     </div>
+
+    <div class="sound-lead-photo reveal">
+      <img src="images/sound-lead.jpg" alt="איריס מנגנת בפעמוני צינור מרפאים בזמן שלב ההרפיה">
+    </div>
+
     <p class="sound-lead reveal">
       מה שהופך את התרגול בסטודיו לחוויה חד־פעמית הוא השילוב של כלי נגינה אקוסטיים אמיתיים בשלבי הנשימה וההרפיה העמוקה. הצלילים אינם רקע – הם חלק אינטגרלי מהתרגול. הם מרגיעים את מערכת העצבים, משקיטים בעדינות את מרוץ המחשבות, ומכניסים אותך למצב עמוק של הרפיה נוירולוגית – מצב שקשה להגיע אליו לבד.
     </p>
     <div class="instruments">
       <div class="instrument reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#C9BBA8" stroke-width="1.7" aria-hidden="true"><ellipse cx="24" cy="24" rx="18" ry="15"/><circle cx="24" cy="22" r="4"/><circle cx="14" cy="24" r="1.6"/><circle cx="34" cy="24" r="1.6"/><circle cx="19" cy="15.5" r="1.6"/><circle cx="29" cy="15.5" r="1.6"/><circle cx="19" cy="31" r="1.6"/><circle cx="29" cy="31" r="1.6"/></svg>
+        <div class="instrument-photo"><img src="images/instrument-pantam.jpg" alt="פאנטם - כלי הרמוני עגול"></div>
         <h3>פאנטם</h3>
         <p>כלי הרמוני עגול שיוצר תדרים עוטפים ומרגיעים</p>
       </div>
       <div class="instrument reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#C9BBA8" stroke-width="1.7" aria-hidden="true"><path d="M14 40V14c0-6 6-8 10-6M14 14c8-8 22-4 22 10 0 10-8 16-16 16" stroke-linecap="round"/><path d="M18 16v22M23 14v24M28 15v22M33 18v18" stroke-linecap="round" stroke-width="1.2"/></svg>
+        <div class="instrument-photo"><img src="images/instrument-harp.jpg" alt="נבל קטן"></div>
         <h3>נבל קטן</h3>
         <p>צלילים עדינים ומרפאים</p>
       </div>
       <div class="instrument reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#C9BBA8" stroke-width="1.7" aria-hidden="true"><path d="M12 30l6-18M22 30l6-18M32 30l6-18" stroke-linecap="round"/><path d="M10 30h30" stroke-linecap="round"/><circle cx="18" cy="12" r="2"/><circle cx="28" cy="12" r="2"/><circle cx="38" cy="12" r="2"/></svg>
+        <div class="instrument-photo"><img src="images/instrument-kalani.jpg" alt="קיילאני - קערות טיבטיות ופעמונים"></div>
         <h3>קיילאני</h3>
         <p>כלי הקשה עדין עם צליל קריסטלי</p>
       </div>
       <div class="instrument reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#C9BBA8" stroke-width="1.7" aria-hidden="true"><path d="M14 12h20l-3 10H17l-3-10z" stroke-linejoin="round"/><path d="M24 22v14" stroke-linecap="round"/><path d="M18 40c2-3 10-3 12 0" stroke-linecap="round"/><path d="M24 8v-3" stroke-linecap="round"/></svg>
+        <div class="instrument-photo"><img src="images/instrument-koshi.jpg" alt="פעמוני קושי - פעמוני צינור"></div>
         <h3>פעמוני קושי</h3>
         <p>צלילים ארוכים מהמזרח הרחוק</p>
       </div>
       <div class="instrument reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#C9BBA8" stroke-width="1.7" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M10 26c4-4 8 2 12-2s8 2 12-2" stroke-linecap="round"/><path d="M13 32c4-3 7 2 11-1s7 2 11-1" stroke-linecap="round" stroke-width="1.2"/></svg>
+        <div class="instrument-photo"><img src="images/instrument-oceandrum.jpg" alt="תוף ים"></div>
         <h3>תוף ים</h3>
         <p>צליל של גלי ים מרגיעים</p>
       </div>
@@ -605,6 +620,9 @@ section{padding:100px 0}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#4A5D4E" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>שקט מנטלי וצלילות מחשבתית</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#4A5D4E" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>תחושת חיבור עצמי ורוגע פנימי</li>
         </ul>
+        <div class="class-photo">
+          <img src="images/class-stretch.jpg" alt="איריס מתמתחת בתנוחת ישיבה, ידיים מורמות">
+        </div>
       </div>
     </div>
   </div>
@@ -634,8 +652,8 @@ section{padding:100px 0}
       <div class="price-tag">מנוי חודשי · שיעור קבוע בשבוע</div>
       <div class="price-amount" id="priceAmount">270 ₪ <span>/ לחודש</span></div>
       <p id="priceNote">הדרך המומלצת – מבטיחה עקביות ותוצאות אמיתיות. מזרנים ושמיכות רכות מחכים לך בסטודיו.</p>
-      <a class="btn btn-primary"
-         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
+      <a class="btn btn-primary" data-wa-link="true"
+         href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
          target="_blank" rel="noopener">לתיאום שיעור</a>
       <p class="price-note">רוצה קודם להתנסות? שלחי הודעה ונתאם יחד שיעור היכרות.</p>
     </div>
@@ -726,8 +744,8 @@ section{padding:100px 0}
       <h2>מוכנה לרגע של שקט?</h2>
       <p>שלחי הודעה קצרה בוואטסאפ – ונמצא יחד את השיעור שמתאים לך.</p>
       <div class="contact-actions">
-        <a class="btn btn-primary"
-           href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
+        <a class="btn btn-primary" data-wa-link="true"
+           href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
            target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2a9.9 9.9 0 00-8.4 15.13L2 22l5-1.62A9.9 9.9 0 1012.05 2zm0 18.13a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .97 1-2.9-.2-.3a8.23 8.23 0 116.7 3.56z"/></svg>
           לתיאום שיעור
@@ -764,8 +782,8 @@ section{padding:100px 0}
 </footer>
 
 <!-- ============ FLOATING WHATSAPP ============ -->
-<a class="wa-float"
-   href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94" data-wa-link="true"
+<a class="wa-float" data-wa-link="true"
+   href="https://wa.me/972528636380?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%99%D7%95%D7%92%D7%94"
    target="_blank" rel="noopener" aria-label="שליחת הודעת וואטסאפ לתיאום שיעור">
   <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2a9.9 9.9 0 00-8.4 15.13L2 22l5-1.62A9.9 9.9 0 1012.05 2zm0 18.13a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .97 1-2.9-.2-.3a8.23 8.23 0 116.7 3.56z"/></svg>
 </a>
@@ -802,28 +820,28 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // FAQ accordion
-document.querySelectorAll('.faq').forEach(faq => {
-  const btn = faq.querySelector('.faq-q');
-  const ans = faq.querySelector('.faq-a');
-  btn.addEventListener('click', () => {
-    const isOpen = faq.classList.contains('open');
-    document.querySelectorAll('.faq.open').forEach(o => {
-      o.classList.remove('open');
-      o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-      o.querySelector('.faq-a').style.maxHeight = null;
+function bindFaqEvents() {
+  document.querySelectorAll('.faq').forEach(faq => {
+    const btn = faq.querySelector('.faq-q');
+    const ans = faq.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = faq.classList.contains('open');
+      document.querySelectorAll('.faq.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        faq.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
     });
-    if (!isOpen) {
-      faq.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      ans.style.maxHeight = ans.scrollHeight + 'px';
-    }
   });
-});
-</script>
-<script>
+}
+bindFaqEvents();
+
 // ============ טעינת תוכן מ-content.json ============
-// אם הקובץ לא נטען (למשל פתיחה ישירה של הקובץ בלי שרת) - האתר ממשיך לעבוד
-// עם הטקסטים הקבועים שכבר כתובים ב-HTML, בלי שגיאה למשתמשת.
 fetch('content.json')
   .then(res => res.ok ? res.json() : Promise.reject())
   .then(renderContent)
@@ -836,7 +854,6 @@ function esc(str) {
 }
 
 function renderContent(c) {
-  // Hero
   if (c.hero) {
     const t = document.getElementById('heroTitle');
     const s = document.getElementById('heroSubtitle');
@@ -844,7 +861,6 @@ function renderContent(c) {
     if (s && c.hero.subtitle) s.textContent = c.hero.subtitle;
   }
 
-  // WhatsApp + Email links
   if (c.contact) {
     const phone = (c.contact.whatsapp_phone || '').replace(/\D/g, '');
     const msg = encodeURIComponent(c.contact.whatsapp_message || '');
@@ -867,7 +883,6 @@ function renderContent(c) {
     if (hours && c.contact.hours) hours.textContent = c.contact.hours;
   }
 
-  // Schedule
   const schedGrid = document.getElementById('scheduleGrid');
   if (schedGrid && Array.isArray(c.schedule) && c.schedule.length) {
     schedGrid.innerHTML = c.schedule.map(s => `
@@ -878,7 +893,6 @@ function renderContent(c) {
       </div>`).join('');
   }
 
-  // Price
   if (c.price) {
     const amt = document.getElementById('priceAmount');
     const note = document.getElementById('priceNote');
@@ -886,7 +900,6 @@ function renderContent(c) {
     if (note && c.price.note) note.textContent = c.price.note;
   }
 
-  // Testimonials
   const testiGrid = document.getElementById('testimonialsGrid');
   if (testiGrid && Array.isArray(c.testimonials) && c.testimonials.length) {
     testiGrid.innerHTML = c.testimonials.map(t => `
@@ -899,7 +912,6 @@ function renderContent(c) {
       </article>`).join('');
   }
 
-  // FAQ
   const faqWrap = document.getElementById('faqWrap');
   if (faqWrap && Array.isArray(c.faq) && c.faq.length) {
     faqWrap.innerHTML = c.faq.map(item => `
@@ -909,26 +921,6 @@ function renderContent(c) {
       </div>`).join('');
     bindFaqEvents();
   }
-}
-
-function bindFaqEvents() {
-  document.querySelectorAll('.faq').forEach(faq => {
-    const btn = faq.querySelector('.faq-q');
-    const ans = faq.querySelector('.faq-a');
-    btn.addEventListener('click', () => {
-      const isOpen = faq.classList.contains('open');
-      document.querySelectorAll('.faq.open').forEach(o => {
-        o.classList.remove('open');
-        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        o.querySelector('.faq-a').style.maxHeight = null;
-      });
-      if (!isOpen) {
-        faq.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
-      }
-    });
-  });
 }
 </script>
 </body>
