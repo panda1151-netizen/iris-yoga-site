@@ -62,8 +62,8 @@ body{
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 h1,h2,h3{font-weight:700;color:var(--sage);line-height:1.3}
-h1{font-size:clamp(30px,5vw,48px)}
-h2{font-size:clamp(26px,3.6vw,34px)}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.6vw,34px);line-height:1.15;letter-spacing:-.015em}
 h3{font-size:clamp(19px,2.4vw,23px)}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 section{padding:100px 0}
@@ -124,6 +124,9 @@ section{padding:100px 0}
   transition:box-shadow .3s ease,background .3s ease;
 }
 .nav.scrolled{box-shadow:0 2px 20px rgba(42,42,42,.08);background:rgba(251,250,247,.97)}
+@media(prefers-reduced-transparency:reduce){
+  .nav{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{font-weight:700;font-size:19px;color:var(--sage);display:flex;align-items:center;gap:10px}
 .logo svg{width:30px;height:30px}
@@ -139,7 +142,9 @@ section{padding:100px 0}
 .nav-cta{display:inline-flex}
 .hamburger{
   display:none;background:none;border:none;cursor:pointer;padding:10px;min-width:44px;min-height:44px;
+  transition:transform .16s var(--ease-out);
 }
+.hamburger:active{transform:scale(.9)}
 .hamburger span{display:block;width:24px;height:2px;background:var(--sage);margin:5px 0;transition:transform .3s ease,opacity .3s ease}
 .hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
@@ -371,9 +376,12 @@ section{padding:100px 0}
   width:100%;background:none;border:none;cursor:pointer;text-align:right;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
   padding:20px 24px;font-family:'Assistant',sans-serif;font-size:17px;font-weight:700;color:var(--text);
-  min-height:56px;transition:color .2s ease;
+  min-height:56px;transition:color .2s ease,background-color .2s ease;
 }
-.faq-q:hover{color:var(--sage)}
+@media(hover:hover) and (pointer:fine){
+  .faq-q:hover{color:var(--sage)}
+}
+.faq-q:active{background-color:var(--bg2)}
 .faq-q:focus-visible{outline:3px solid var(--stone);outline-offset:-3px;border-radius:16px}
 .faq-icon{
   width:26px;height:26px;flex-shrink:0;border-radius:50%;background:var(--bg2);position:relative;
